@@ -132,9 +132,7 @@ const Homepage = () => {
         <p className="text-gray-600">
           Be a part of the community of MutualAid DAO
         </p>
-        <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-medium flex items-center space-x-2 transition-colors">
-          Pool Page
-        </button>
+       
       </div>
 
       {/* Metric Cards Row */}
