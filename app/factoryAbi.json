@@ -1,0 +1,252 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "stationID",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "poolAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "latitude",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "longitude",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "tempLower",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "tempUpper",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "windLower",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "windUpper",
+        "type": "int256"
+      }
+    ],
+    "name": "PoolCreated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_stationID",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_location",
+        "type": "string"
+      },
+      {
+        "internalType": "int256",
+        "name": "_latitude",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_longitude",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_tempLower",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_tempUpper",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_windLower",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "_windUpper",
+        "type": "int256"
+      }
+    ],
+    "name": "createPoolVault",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllPools",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "stationID",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "poolAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "internalType": "int256",
+            "name": "latitude",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "longitude",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "tempLower",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "tempUpper",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "windLower",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "windUpper",
+            "type": "int256"
+          },
+          {
+            "internalType": "address",
+            "name": "creator",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct PoolVaultFactory.PoolInfo[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "pools",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "stationID",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "poolAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "internalType": "int256",
+        "name": "latitude",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "longitude",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "tempLower",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "tempUpper",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "windLower",
+        "type": "int256"
+      },
+      {
+        "internalType": "int256",
+        "name": "windUpper",
+        "type": "int256"
+      },
+      {
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
