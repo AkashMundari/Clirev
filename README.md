@@ -22,9 +22,7 @@ Clirev is a Web3 platform for creating, funding, and managing community-driven l
 - [Smart Contracts](#smart-contracts)
 - [Architecture](#architecture)
 - [Demo](#demo)
-- [Contributing](#contributing)
-- [License](#license)
-- [Additional Best Practices](#additional-best-practices)
+
 
 
 ---
