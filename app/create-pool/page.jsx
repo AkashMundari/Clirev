@@ -221,7 +221,7 @@ const CreatePool = () => {
               </label>
               <input
                 type="text"
-                placeholder="e.g. Washington"
+                placeholder="e.g. 40.8781"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-black"
                 value={givenLatitude}
                 onChange={(e) => setGivenLatitude(e.target.value)}
@@ -233,7 +233,7 @@ const CreatePool = () => {
               </label>
               <input
                 type="text"
-                placeholder="e.g. Washington"
+                placeholder="e.g. 29.3754"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-black"
                 value={givenLongitude}
                 onChange={(e) => setGivenLongitude(e.target.value)}
@@ -260,7 +260,7 @@ const CreatePool = () => {
               </label>
               <input
                 type="text"
-                placeholder="e.g. Washington"
+                placeholder=""
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-black"
                 value={stationLatitude}
                 disabled
@@ -272,7 +272,7 @@ const CreatePool = () => {
               </label>
               <input
                 type="text"
-                placeholder="e.g. Washington"
+                placeholder=""
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-black"
                 value={stationLongitude}
                 disabled
@@ -286,7 +286,7 @@ const CreatePool = () => {
             </label>
             <input
               type="text"
-              placeholder="e.g. Washington"
+              placeholder=""
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-black"
               value={location}
               disabled
