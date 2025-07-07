@@ -9,6 +9,8 @@ Clirev is a Web3 platform for creating, funding, and managing community-driven l
 
 [**Demo Video**](https://youtu.be/-BDZCYIdVeg?si=7PRdhyj3T6iga-NP)
 
+[**EtherScan**](https://sepolia.etherscan.io/address/0xb797601CF5D594b9DFE81caF693D500f94e6A6E3) : **Transactions in Demo video**
+
 
 
 ---
