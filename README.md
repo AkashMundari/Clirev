@@ -7,6 +7,8 @@
 
 Clirev is a Web3 platform for creating, funding, and managing community-driven liquidity pools that provide rapid financial relief in response to extreme weather events. It is powered by [WeatherXM's API](https://weatherxm.com/) for real-time weather data and the [Mosaia platform](https://www.mosaia.ai/) for AI-driven event analysis.
 
+[**Demo Video**](https://youtu.be/-BDZCYIdVeg?si=7PRdhyj3T6iga-NP)
+
 
 
 ---
@@ -235,10 +237,7 @@ Clirev addresses the growing need for **climate resilience** in an era of increa
 
 
 
-## 🎬 Demo
 
-- [Demo Video Link](#) <!-- Replace with actual link -->
-- [Live Testnet Deployment Link](#) <!-- Replace with actual link -->
 
 ---
 
