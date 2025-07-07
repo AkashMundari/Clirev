@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus, Heart } from "lucide-react";
 import { ethers } from "ethers";
 import abi from "../abi.json";
 
@@ -112,10 +112,11 @@ const LiquidityManagement = ({ poolAddress }) => {
           className="mt-1 border border-gray-300 rounded-md shadow-sm p-2 text-black flex-1"
         />
         <button
-          className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-colors"
+          className="bg-pink-600 hover:bg-pink-800 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-colors"
           onClick={handleDonate}
         >
-          <Plus className="w-5 h-5" />
+          <Heart className="w-4 h-4 text-pink-200" />
+
           <span>Donate</span>
         </button>
       </div>
