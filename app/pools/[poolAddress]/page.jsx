@@ -14,11 +14,6 @@ const dashboardStats = {
   totalPools: 12,
 };
 
-
-
-
-
-
 export default async function MainDashboard({ params }) {
   const poolAddress = (await params).poolAddress;
 
@@ -31,7 +26,7 @@ export default async function MainDashboard({ params }) {
       <div className="p-6">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Community Protection Dashboard
+            Pool Addr: {poolAddress}
           </h1>
           <p className="text-gray-600">
             Monitor community funds and weather-triggered assistance
