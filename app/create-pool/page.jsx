@@ -18,7 +18,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
   return R * c;
 };
 
-const factoryAddress = "0x0570C5E91529de87a38D2FD6bb8C2EAf14874085";
+const factoryAddress = "0xb797601CF5D594b9DFE81caF693D500f94e6A6E3";
 
 // Find the closest station to the reference point
 const findClosestStation = (stations, givenLatitude, givenLongitude) => {

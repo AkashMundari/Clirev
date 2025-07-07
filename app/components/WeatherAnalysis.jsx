@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Thermometer, CloudRain, Loader2, Bot, Send } from "lucide-react";
 import { ethers } from "ethers";
 import abi from "../abi.json";
@@ -26,10 +26,8 @@ const WeatherAnalysis = ({ poolAddress }) => {
   const [apiKey, setApiKey] = useState(
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY3RpdmVfaWQiOiI3MjYzZTJlNzI4MjI5ZDk3MTk5YmViZWU4NDJlYjQ3ZSIsImNsaWVudCI6IjY4NmEyMzllMjk2ZjNjMjk0MDgyOGMzOCIsInVzZXIiOiI2ODUxNDcyZGQzY2NlMDFkYjVkMzdkZTgiLCJhcHAiOiI2NzRiNjkxZTEwZGM3MzAyMmU5OGVkYzEiLCJib3QiOiI2ODZhMjM5ZTI5NmYzYzI5NDA4MjhjMzYiLCJpYXQiOjE3NTE3ODYzOTl9.vmk01gZvD9n_LTb7sZChAAEXpcu7owrkiA5_VZf09eU"
   );
-  const [countdown, setCountdown] = useState(null);
-  const [pendingWithdraw, setPendingWithdraw] = useState(false);
+  const [withdrawEnabled, setWithdrawEnabled] = useState(false);
   const [contractBalance, setContractBalance] = useState(0);
-  const countdownRef = useRef(null);
 
   // Fetch pool metadata
   useEffect(() => {
@@ -94,9 +92,7 @@ const WeatherAnalysis = ({ poolAddress }) => {
       setIsLoading(true);
       setAgentSummary("");
       setTxStatus("");
-      setPendingWithdraw(false);
-      setCountdown(null);
-      if (countdownRef.current) clearInterval(countdownRef.current);
+      setWithdrawEnabled(false);
 
       try {
         // 1. Fetch latest weather data
@@ -160,7 +156,7 @@ And the allowed ranges:
         const agentReply = mosaiaData.choices[0].message.content;
         setAgentSummary(agentReply);
 
-        // 4. If agent says to trigger withdraw, start countdown
+        // 4. If agent says to trigger withdraw, enable withdrawal button
         if (
           (agentReply.includes("TRIGGER_WITHDRAW") ||
             obs.temperature < temperatureLowerLimit ||
@@ -169,31 +165,19 @@ And the allowed ranges:
             obs.wind_speed > windUpperLimit) &&
           contractBalance > 0
         ) {
-          setPendingWithdraw(true);
-          let seconds = 20;
-          setCountdown(seconds);
-          countdownRef.current = setInterval(() => {
-            seconds -= 1;
-            setCountdown(seconds);
-            if (seconds <= 0) {
-              clearInterval(countdownRef.current);
-              callWithdraw();
-              setPendingWithdraw(false);
-            }
-          }, 1000);
+          setWithdrawEnabled(true);
+        } else {
+          setWithdrawEnabled(false);
         }
       } catch (error) {
         setAgentSummary("Error: " + (error.reason || error.message));
+        setWithdrawEnabled(false);
       } finally {
         setIsLoading(false);
       }
     }
 
     fetchWeatherAndAnalyze();
-    // Cleanup on unmount
-    return () => {
-      if (countdownRef.current) clearInterval(countdownRef.current);
-    };
     // eslint-disable-next-line
   }, [stationId, apiKey]);
 
@@ -217,16 +201,6 @@ And the allowed ranges:
       setTxStatus("Withdraw failed: " + (error.reason || error.message));
     }
   }
-
-  // Format countdown as mm:ss
-  const formatCountdown = (seconds) => {
-    if (seconds == null || seconds < 0) return null;
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, "0")}:${secs
-      .toString()
-      .padStart(2, "0")}`;
-  };
 
   return (
     <>
@@ -302,10 +276,14 @@ And the allowed ranges:
           ) : (
             <div className="whitespace-pre-line">{agentSummary}</div>
           )}
-          {pendingWithdraw && (
-            <div className="mt-4 text-center text-red-700 font-bold text-lg">
-              Withdraw will be triggered in{" "}
-              <span className="font-mono">{formatCountdown(countdown)}</span>
+          {withdrawEnabled && (
+            <div className="mt-4 text-center">
+              <button
+                onClick={callWithdraw}
+                className="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+              >
+                Withdraw
+              </button>
             </div>
           )}
           {txStatus && (

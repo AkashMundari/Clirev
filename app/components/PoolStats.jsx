@@ -11,6 +11,7 @@ const PoolStats = ({ dashboardStats, poolAddress, connectedAddress }) => {
   const [totalDonated, setTotalDonated] = useState("0");
   const [userDeposits, setUserDeposits] = useState("0");
   const [userDonations, setUserDonations] = useState("0");
+  const [members, setMembers] = useState(0);
 
   useEffect(() => {
     if (!poolAddress || !connectedAddress) return;
@@ -26,8 +27,10 @@ const PoolStats = ({ dashboardStats, poolAddress, connectedAddress }) => {
       const totalDonated = await poolVault.totalDonated();
       const userDeposits = await poolVault.deposits(connectedAddress);
       const userDonations = await poolVault.donations(connectedAddress);
+      const membersLength = await poolVault.getMembersLength();
 
       setContractBalance(ethers.utils.formatEther(contractBalance));
+      setMembers(Number(membersLength));
       setTotalDeposited(ethers.utils.formatEther(totalDeposited));
       setTotalDonated(ethers.utils.formatEther(totalDonated));
       setUserDeposits(ethers.utils.formatEther(userDeposits));
@@ -44,28 +47,24 @@ const PoolStats = ({ dashboardStats, poolAddress, connectedAddress }) => {
         value={`${contractBalance} ETH`}
         subtitle="Community treasury"
         icon={DollarSign}
-        trend="+12.5%"
       />
       <StatCard
         title="Members"
-        value={dashboardStats.totalPools}
+        value={members}
         subtitle="Membership Status"
         icon={Users}
-        trend="+5.1%"
       />
       <StatCard
         title="Total Deposits"
-        value={totalDeposited}
+        value={`${totalDeposited} ETH`}
         subtitle="Contributing members"
         icon={Wallet}
-        trend="+8.2%"
       />
       <StatCard
-        title="Total Donated"
-        value={totalDonated}
+        title="Donations"
+        value={`${totalDonated} ETH`}
         subtitle="Generous supporters"
         icon={Heart}
-        trend="+15.3%"
       />
     </div>
   );

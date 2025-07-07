@@ -81,7 +81,8 @@ const Homepage = () => {
     { label: "Location", value: "location", icon: MapPin },
     { label: "Pool Address", value: "poolAddress", icon: Hash },
   ];
-  const factoryAddress = "0x0570C5E91529de87a38D2FD6bb8C2EAf14874085";
+  const factoryAddress = "0xb797601CF5D594b9DFE81caF693D500f94e6A6E3";
+
   const [poolsArray, setPoolsArray] = useState([]);
   useEffect(() => {
     const provider = new ethers.providers.JsonRpcProvider(
@@ -132,7 +133,6 @@ const Homepage = () => {
         <p className="text-gray-600">
           Be a part of the community of MutualAid DAO
         </p>
-       
       </div>
 
       {/* Metric Cards Row */}

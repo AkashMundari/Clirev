@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Heart, User, Home, LayoutDashboard, Layers } from "lucide-react";
+import { Heart, User, Home, Layers } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 
 const Sidebar = () => {
@@ -15,12 +15,7 @@ const Sidebar = () => {
       icon: Home,
       href: "/",
     },
-    {
-      id: "pool",
-      label: "Pool Dashboard",
-      icon: LayoutDashboard,
-      href: "/pools",
-    },
+
     {
       id: "user",
       label: "My Dashboard",
