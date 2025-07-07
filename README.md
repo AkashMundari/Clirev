@@ -67,8 +67,9 @@ Anyone can deposit or donate to a pool.
 
 <img width="797" alt="03" src="https://github.com/user-attachments/assets/425de3a2-a897-464d-adde-acb9a87c85fa" />
 
-- Anyone who deposits or adds liquidity to a pool becomes a **member** and is eligible to receive funds when distributions occur.
-- Anyone who donates becomes a **donor** and supports the pool but does **not** receive any distributions.
+- Members (deposit): Contribute funds and become eligible for distributions
+- Donors (donate): Support the pool without receiving distributions
+
 
 ### 🌦️ Weather Monitoring
 
@@ -140,6 +141,21 @@ Suppose:
 - This integration allows for highly localized and accurate weather event detection.
 - See the WeatherXM API documentation: [https://docs.weatherxm.com/](https://docs.weatherxm.com/)
 
+- ### WeatherXM API Implementation
+
+```javascript
+// Fetch real-time weather data
+const response = await fetch(
+  `https://pro.weatherxm.com/api/v1/stations/${stationId}/latest`,
+  {
+    headers: {
+      'Accept': 'application/json',
+      'X-API-KEY': process.env.WEATHERXM_API_KEY
+    }
+  }
+);
+```
+
 ---
 
 ## 🤖 Mosaia AI Agent Integration
@@ -150,8 +166,35 @@ The [Mosaia platform](https://www.mosaia.ai/) powers Clirev’s AI agent, which:
 - Summarizes current weather conditions for pool members.
 - Determines, based on pool rules, if withdrawal conditions are met.
 - Notifies members when they are eligible to call the withdrawal function.
+  
+- ### Mosaia Agent Workflow
 
-This ensures that all decisions are transparent, auditable, and free from human bias.
+```javascript
+const agentPrompt = `
+Given weather parameters:
+- Temperature: ${temperature}°C
+- Wind Speed: ${windSpeed} m/s
+- Allowed ranges: ${tempRange}°C, ${windRange} m/s
+
+1. Summarize current weather conditions
+2. If outside allowed ranges, respond with "TRIGGER_WITHDRAW"
+`;
+
+const response = await fetch('https://api.mosaia.ai/v1/agent/chat/completions', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${MOSAIA_API_KEY}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    model: "68684f5cddb501570199b339",
+    messages: [{ role: "user", content: agentPrompt }]
+  })
+});
+```
+
+
+This ensures that all decisions free from human bias.
 
 ---
 
@@ -161,20 +204,31 @@ This ensures that all decisions are transparent, auditable, and free from human 
 - **PoolVaultFactory.sol:** Factory contract for deploying and tracking multiple pools.
 
 Contracts are deployed on Ethereum Sepolia Testnet:  
-`[Your contract addresses here]`
+PoolVaultFactory.sol :`[0xb797601CF5D594b9DFE81caF693D500f94e6A6E3]`
 
 ---
 
-## 🧩 Architecture
+## 🏗️ Tech Stack
 
-| Layer         | Technology         | Description                                         |
-|---------------|-------------------|-----------------------------------------------------|
-| 🖥️ Frontend   | [React/Next.js](https://nextjs.org/)     | User interface for pool management                  |
-| 📝 Smart Contract | [Solidity](https://docs.soliditylang.org/)      | Pool logic, automation, and withdrawals             |
-| 🌦️ Oracle    | [WeatherXM API](https://weatherxm.com/)     | Real-time weather data feeds                        |
-| 🤖 AI Agent  | [Mosaia Platform](https://www.mosaia.ai/)   | Weather event analysis and member notification      |
+| Component | Technology | Purpose |
+| :-- | :-- | :-- |
+| **Frontend** | Next.js + React | User interface and Web3 integration |
+| **Smart Contracts** | Solidity + Ethers.js | Pool logic and automated distributions |
+| **Weather Oracle** | WeatherXM API | Real-time hyperlocal weather data |
+| **AI Agent** | Mosaia Platform | Weather event analysis and notifications |
+| **Blockchain** | Ethereum Sepolia | Decentralized infrastructure |
 
 ---
+
+## 🌍 Impact \& Vision
+
+Clirev addresses the growing need for **climate resilience** in an era of increasing weather volatility. By combining:
+
+- **Decentralized Infrastructure** (WeatherXM's global station network)
+- **AI-Driven Intelligence** (Mosaia's analytical capabilities)
+- **Web3 Transparency** (Smart contract automation)
+
+We create a new paradigm for community-driven disaster relief that is **faster**, **fairer**, and **more transparent** than traditional aid systems.
 
 ## 🎬 Demo
 
