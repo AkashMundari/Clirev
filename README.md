@@ -21,11 +21,12 @@ Clirev is a Web3 platform for creating, funding, and managing community-driven l
 - [Features](#features)
 - [How It Works](#how-it-works)
 - [Fund Distribution Logic](#fund-distribution-logic)
+- [Project Architecture](#project-architecture)
 - [WeatherXM API Integration](#weatherxm-api-integration)
 - [Mosaia AI Agent Integration](#mosaia-ai-agent-integration)
 - [Smart Contracts](#smart-contracts)
-- [Architecture](#architecture)
-- [Demo](#demo)
+- [Tech Stack](#tech-stack)
+- [Impact & Vision](#impact-&-vision)
 
 
 
@@ -235,7 +236,7 @@ Clirev addresses the growing need for **climate resilience** in an era of increa
 
 - **Decentralized Infrastructure** (WeatherXM's global station network)
 - **AI-Driven Intelligence** (Mosaia's analytical capabilities)
-- **Web3 Transparency** (Smart contract automation)
+- **Web3 Transparency**
 
 
 
