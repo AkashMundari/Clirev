@@ -133,7 +133,12 @@ Suppose:
 - **Donors** support the pool but do **not** receive any payouts.
 
 ---
+## Project Architecture
 
+![diagram-export-7-7-2025-9_54_54-AM](https://github.com/user-attachments/assets/5deb4528-5c1b-4c17-894e-6c6dbb8f822c)
+
+
+---
 ## 🌐 WeatherXM API Integration
 
 - [WeatherXM's API](https://weatherxm.com/) provides reliable, real-time weather data for any location.
@@ -228,7 +233,7 @@ Clirev addresses the growing need for **climate resilience** in an era of increa
 - **AI-Driven Intelligence** (Mosaia's analytical capabilities)
 - **Web3 Transparency** (Smart contract automation)
 
-We create a new paradigm for community-driven disaster relief that is **faster**, **fairer**, and **more transparent** than traditional aid systems.
+
 
 ## 🎬 Demo
 
@@ -237,7 +242,4 @@ We create a new paradigm for community-driven disaster relief that is **faster**
 
 ---
 
-
-
-Clirev is inspired by the vision of decentralized, community-driven resilience in the face of climate change and extreme weather. By combining Web3, smart contracts, real-world data from **WeatherXM**, and AI-driven analysis from **Mosaia**, Clirev aims to make mutual aid faster, fairer, and more transparent for everyone.
 
